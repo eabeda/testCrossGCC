@@ -14,16 +14,16 @@ git config user.email "elyes.abeda@gmail.com"
 # Executable #
 Cross compiler prefix: arm-linux-gnueabi-
 Cross compiler path: /usr
-Project->proprities->C/C++ Build->Settings->Cross GCC Compiler->Includes->Include paths => Add (+): /tmp/include
+Project->proprities->C/C++ Build->Settings->Cross GCC Compiler->Includes->Include paths => Add (+): /tmp/rootfs/include
 Project->proprities->C/C++ Build->Settings->Cross GCC Linker->Libraries->libraries (-l) => Add (+): Log
-Project->proprities->C/C++ Build->Settings->Cross GCC Linker->Libraries->Library search path (-L) => Add (+): /tmp/lib
+Project->proprities->C/C++ Build->Settings->Cross GCC Linker->Libraries->Library search path (-L) => Add (+): /tmp/rootfs/lib
 # Autotools #
 Project->proprities->C/C++ Build->Behavior->Build : all install (optional)
 Project->proprities->C/C++ Build->Behavior->Clean : clean (optional)
-Project->proprities->Autotools->Configure Settings->Directory specifiers->Arch-independant install directory (--prefix): /tmp
+Project->proprities->Autotools->Configure Settings->Directory specifiers->Arch-independant install directory (--prefix): /tmp/rootfs/
 Project->proprities->Autotools->Configure Settings->Platform specifiers->Host platform (--host): arm-linux-gnueabi
-Project->proprities->Autotools->Configure Settings->Platform specifiers->Target platform (--target): arm-linux-gnueabi (optional 1)
 Project->proprities->Autotools->Configure Settings->Platform specifiers->Build platform (--build): x86_64-linux-gnu (optional 2)
+Project->proprities->Autotools->Configure Settings->Platform specifiers->Target platform (--target): arm-linux-gnueabi (optional 1)
 configure --host=arm-linux-gnueabi --build=x86_64-linux-gnu --target=arm-linux-gnueabi --prefix=/tmp  
 
 0/1
