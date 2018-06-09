@@ -1,24 +1,23 @@
-Sample readme file for testCrossGCC project.
 
+### GIT ###
 git init
 git add *
 git commit -m "first commit"
 git remote add origin https://github.com/eabeda/testCrossGCC.git
 git push -u origin master
 
-$ sudo apt-get install gcc-arm-linux-gnueabi
+#local config in local repos
+git config user.name "eabeda"
+git config user.email "elyes.abeda@gmail.com"
 
-$ arm-linux-gnueabi-gcc -c ./src/testCrossGCC.c
-$ arm-linux-gnueabi-gcc testCrossGCC.o -o testCrossGCC
-
-Eclipse :
-Executable:
+### ECLIPSE ###
+# Executable #
 Cross compiler prefix: arm-linux-gnueabi-
 Cross compiler path: /usr
 Project->proprities->C/C++ Build->Settings->Cross GCC Compiler->Includes->Include paths => Add (+): /tmp/include
 Project->proprities->C/C++ Build->Settings->Cross GCC Linker->Libraries->libraries (-l) => Add (+): Log
 Project->proprities->C/C++ Build->Settings->Cross GCC Linker->Libraries->Library search path (-L) => Add (+): /tmp/lib
-Autotools:
+# Autotools #
 Project->proprities->C/C++ Build->Behavior->Build : all install (optional)
 Project->proprities->C/C++ Build->Behavior->Clean : clean (optional)
 Project->proprities->Autotools->Configure Settings->Directory specifiers->Arch-independant install directory (--prefix): /tmp
@@ -37,13 +36,16 @@ checking build system type... x86_64-pc-linux-gnu
 checking host system type... arm-unknown-linux-gnueabi
 checking target system type... arm-unknown-linux-gnueabi
 
+### APT ###
+sudo apt-get install gcc-arm-linux-gnueabi
+sudo apt-get install qemu-user
+
+### EXECUTION ###
+$ arm-linux-gnueabi-gcc -c ./src/testCrossGCC.c
+$ arm-linux-gnueabi-gcc testCrossGCC.o -o testCrossGCC
+
 $ file src/testCrossGCC
 src/testCrossGCC: ELF 32-bit LSB  executable, ARM, EABI5 version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=d0b08a78711f5f2246315454aacfeb3951fe1dec, not stripped
-
-$ sudo apt-get install qemu-user
-
-$ qemu-arm Debug/testCrossGCC
-
 $ file /tmp/lib/libLog.so.0.0.0
 /tmp/lib/libLog.so.0.0.0: ELF 32-bit LSB  shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, BuildID[sha1]=a314b90a1bda6c1147c8f5daeef5679b9cbc0b9b, not stripped
 
