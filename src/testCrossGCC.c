@@ -16,9 +16,9 @@
 
 int main(void)
 {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+    puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
     myLog_init(MODULE_NAME);
     myLog(LOG_DEBUG, "*** %s ***", MODULE_NAME);
-	myLog_close();
-	return EXIT_SUCCESS;
+    myLog_close();
+    return EXIT_SUCCESS;
 }
